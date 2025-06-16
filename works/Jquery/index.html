@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js"></script>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+    *{
+        padding: 0;
+        margin: 0;
+        border: 0;
+        box-sizing: border-box;
+        font-family: 'Outfit';
+        user-select: none;
+    }
+    svg *{
+        transition: 0.7s;
+        cursor: pointer;
+    }
+    .box{
+        width: 100%;
+        padding: 1% 5% 0 5%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .box>*{
+        transition: 0.8s;
+    }
+    header {
+        width: 100%;
+        height: 900px;
+        border-radius: 13px;
+        padding: 2% 5% 0 5%;
+        background-color: #F0F7F8;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    nav{
+        width: 100%;
+        height: 55px;
+        background: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2% 0 2%;
+        border-radius: 15px;
+    }
+    .nav_example{
+        width: 35%;
+        display: flex;
+        justify-content: space-around;
+  
+    }
+    .nav_example a{
+        color: black;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .text_bl{
+        width: 50%;
+        height: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        margin: 5% 0;
+    }
+    .text_bl h1{
+        text-transform: uppercase;
+        width: 100%;
+        font-size: 40px;
+    }
+    .text_bl span{
+        color: royalblue;
+    }
+    .text_bl h2{
+        text-transform: uppercase;
+        margin: 1% 0 3% 0;
+        font-size: 28px;
+        font-weight: 400;
+    }
+    .text_bl p{
+        font-size: 23px;
+        width: 87%;
+        margin-bottom: 5%;
+    }
+    .text_bl button{
+        width: 22%;
+        height: 50px;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .btn{
+        color: white;
+        background-color: #0F2435;
+    }
+    .btn2{
+        color: #0F2435;
+        border: 2px solid #0F2435;
+        background-color: transparent;
+        margin-left: 2%;
+    }
+    .img_bl{
+        width: 50%;
+        height: 55%;
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        margin: 5% 0;
+    }
+    .img_bl img{
+        height: 83%;
+        z-index: 100;
+    }
+    .jquery_features_block{
+        position: relative;
+        background-color: white;
+        width: 33%;
+        border-radius: 10px;
+        height: 20%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-content: space-evenly;
+        justify-content: space-evenly;
+        top: -37%;
+        left: 45%;
+    }
+    .feature{
+        font-size: 18px;
+        font-weight: 450;
+    }
+    .feature img{
+        width: 25px;
+    }
+    .programm_lang_block{
+        background-color: white;
+        width: 40%;
+        height: 10%;
+        border-radius: 15px;
+        position: relative;
+        top: -10%;
+        left: -30%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .programm_lang_block img{
+        height: 80%;
+    }
+
+    .jqsyn_h1{
+        width:100%;
+        height: 200px;
+        color:#0F2435;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .jqsyn_h1 h1{
+        font-size: 40px;
+        padding-top: 100px;
+    }
+    .jqsyn_h1 b{
+        color: royalblue;
+    }
+    .jqsyn_body{
+        width: 100%;
+        height: 200px;
+        display: flex;
+        margin-top: 5%;
+        margin-bottom: 10%;
+    }
+    .jq_one{
+        width: 50%;
+        height: 200px;
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        align-items: center;
+        font-family: monospace;
+    }
+    .jq_one h1{
+        font-size: 50px;
+        transition: .5s;
+    }
+    .jq_one span{
+        transition: .5s;
+    }
+    .jq_one b{
+        color: #3EB7BF;
+        font-weight: 600;
+    }
+    .jq_two{
+        width: 50%;
+        height: 200px;
+        background: rgba(192, 229, 241, 0.596);
+        border: 4px dashed rgb(128, 203, 228);
+        display: flex;
+        padding: 20px;
+        transition: 1s;
+    }
+    .jq_two p{
+        font-size: 23px;
+    }
+
+    .jqanim_h1{
+        width: 100%;
+        height: 150px;
+        padding-top: 60px;
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 3%;
+    }
+    .jqanim_h1 b{
+        color: royalblue;
+    }
+    .jqsyn_body2{
+        width: 100%;
+        height: 500px;
+        margin-bottom: 5%;
+        display: flex;
+    }
+    .jq_one2{
+        width: 50%;
+        height: 100%;
+       background: white;
+       display: flex;
+       flex-direction: column;
+       
+    }
+    .jq_two2{
+        width: 50%;
+        height: 100%;
+       background: white;
+       display: flex;
+       flex-direction: row;
+       justify-content: right;
+       
+    }
+    .div_one1{
+        width: 100%;
+        height: 30%;
+
+        padding-top: 20px;
+        font-size: 25.5px;
+    }
+    .div_one2{
+        width: 100%;
+        height: 30%;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        margin-top: 3%;
+    }
+    .div_one2 b{
+        color: #3EB7BF;
+    }
+    .button_container{
+        width: 90%;
+        height: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-content: space-around;
+    }
+    .button_container button{
+        width: 30%;
+        height: 60px;
+        border-radius: 10px;
+        background-color: white;
+        font-size: 20px;
+        font-weight: 500;
+    }
+    .jq_img{
+        width: 95%;
+        border-radius: 15px;
+        box-shadow: 10px 10px 20px -2px black;
+    }
+    .main_h1_3{
+        text-align: center;
+        width: 100%;
+        margin-top: 5%;
+        text-transform: uppercase;
+        font-size: 30px;
+    }
+    .main_body_3{
+        height: 500px;
+        width: 100%;
+        margin-top: 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .main_body_container_3{
+        width: 50%;
+        height: 500px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        align-content: center;
+    }
+    .main_body_container_3_2{
+        width: 50%;
+        height: 500px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .input_one{
+        width: 75%;
+        height: 14%;
+        border-radius: 14px;
+        padding-left: 15px;
+        font-size: 20px;
+        background: rgba(240, 247, 248, 1);
+        color: black;
+    }
+    .input_two{
+        width: 75%;
+        height: 14%;
+        border-radius: 14px;
+        padding-left: 15px;
+        font-size: 20px;
+        background: rgba(240, 247, 248, 1);
+        color: black;
+        margin-top: -5%;
+    }
+    .add_tag_bl{
+        width: 75%;
+        height: 14%;
+        background: rgba(15, 36, 53, 1);
+        border-radius: 14px;
+        color: white;
+        font-size: 23px;
+        transition: 0.3s;
+    }
+    .add_tag_bl:focus{
+        box-shadow: inset -10px 10px 10px -3px #3EB7BF;
+    }
+    .tag_bl{
+        width: 250px;
+        height: 13rem;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        background: white;
+        box-shadow: 0px 6px 13px 4px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        padding: 20px;
+        margin-top: 2%;
+        transition: 0.15s;
+    }
+    .tag_bl p{
+        font-size: 20px;
+        font-family: "Outfit";
+        overflow-y: scroll;
+    }
+    .tag_bl b{
+        font-weight: 500;
+    }
+    input{
+        outline: none;
+        transition: 0.4s;
+    }
+    input:focus{
+        box-shadow:  0 0 7px 1px royalblue;
+    }
+    .tag_bl:hover{
+        box-shadow: 0 0 10px -2px red;
+    }
+    .main_section_4{
+        width: 100%;
+        height: 850px;
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        justify-content: center;
+        margin-top: 13%;
+    }
+    .main_section_4 h1,h2{
+        width: 100%;
+    }
+    .sort_img_bl{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-content: space-evenly;
+        height: 76%;
+        width: 80%;
+    }
+    .sort_img_bl img{
+        width: 32%;
+        height: 32%;
+        cursor: pointer;
+    }
+    
+    .correct_sort_alert{
+        height: 230px;
+        width: 30%;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        position: relative;
+        top: 25%;
+        left: 35%;
+        background-color: white;
+    }
+    .correct_sort_cont{
+        width: 100%;
+        height: 88%;
+        margin-top: 2%;
+        position: relative;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .main_h1_4{
+        text-align: center;
+        width: 100%;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-top: 5%;
+    }
+    .main_section_5{
+        width: 75%;
+        height: 400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+    }
+    .section5_div_1{
+        width: 30%;
+        height: 400px;
+        background: #EFF7F7;
+        color: red;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        text-align: center;
+        font-size: 25px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 5px 2px #00000040;
+        font-family: monospace;
+    }
+    .section5_div_2{
+        width: 40%;
+        height: 400px;
+        padding: 2%;
+        font-size: 30px;
+        color: #004781;
+        font-weight: 600;
+        position: relative;
+    }
+    .section5_div_2 p {
+        width: 20%;
+        height: 40px;
+        position: absolute;
+    }
+    .section5_div_3{
+        width: 30%;
+        height: 400px;
+        background: #EFF7F7;
+        color: red;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        box-shadow: 0px 4px 5px 2px #00000040;
+        text-align: center;
+        font-size: 25px;
+        font-family: monospace;
+    }
+    .p_1{
+        left: 10%;
+    }
+    .p_2{
+        left: 35%;
+    }
+    .p_3{
+        left: 70%;
+    }
+    .p_4{
+        top: 20%;
+    }
+    .p_5{
+        top: 20%;
+        left: 55%;
+    }
+    .p_6{
+        top: 38%;
+        left: 15%;
+    }
+    .p_7{
+        top: 35%;
+        left: 50%;
+    }
+    .p_8{
+        top: 55%;
+    }
+    .p_9{
+        top: 50%;
+        left: 35%;
+    }
+    .p_10{
+        top: 47%;
+        left: 70%;
+    }
+    .p_11{
+        top: 70%;
+        left: 30%;
+    }
+    .main_h1_5{
+        width: 100%;
+        height: 80px;
+        text-align: center;
+        margin: 5% 0 0 0;
+    }
+    .accordion_sec{
+        width: 100%;
+        min-height: 230px;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 5%;
+    }
+    .acc_sec1{
+        width: 40%;
+        min-height: 230px;
+        height: 230px;
+        display: flex;
+        justify-content: space-evenly;
+        align-content: center;
+        flex-direction: column;
+    }
+    .ac_button{
+        width: 100%;
+        height: 60px;
+        border-radius: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0px 3px 10px 0 rgba(0, 0, 0, 0.452);
+        font-size: 20px;
+        font-weight: 750;
+        padding: 0 3% 0 3%;
+    }
+    .ac_button span{
+        transform: rotate(90deg);
+        transition: .8s ease-out;
+    }
+    .ac_button .ac_rotated_btn{
+        transform: rotate(-90deg);
+    }
+    .ac_txt{
+        width: 100%;
+        box-shadow: 0px 5px 10px -3px rgba(0, 0, 0, 0.452);
+        border-radius: 15px;
+        padding: 2%;
+        display: none;
+    }
+    .acc_sec2{
+        width: 50%;
+        height: 400px;
+        display: flex;
+    }
+    .acc_sec2 .ac_imgs{
+        height: 100%;
+        width: 30%;
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        background-position: center center;
+        transition: 1.5s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    .ac_imgs:nth-child(1){
+        background-image: url("img/Eternal\ Warriors\ WP\ 04.jpg");
+        border-radius: 15px 0 0 15px;
+    }
+    .ac_imgs:nth-child(2){
+        background-image: url("img/Eternal\ Warriors\ WP\ 07.jpg");
+    }
+    .ac_imgs:nth-child(3){
+        background-image: url("img/Eternal\ Warriors\ WP\ 11.jpg");
+    }
+    .ac_imgs:nth-child(4){
+        background-image: url("img/Eternal\ Warriors\ WP\ 18.jpg");
+        border-radius: 0 15px 15px 0;
+    }
+</style>
+<body>
+    <div class="box">
+        <header>
+            <nav>
+                <img src="img/logo.png">
+                <div class="nav_example">
+                    <a href="">Example 1</a>
+                    <a href="">Example 2</a>
+                    <a href="">Example 3</a>
+                    <a href="">Example 4</a>
+                    <a href="">Example 5</a>
+                </div>
+                <svg width="100" height="40" viewBox="0 0 229 98" fill="none" xmlns="http://www.w3.org/2000/svg">
+      
+                    <rect class="skelet" x="3" y="5" width="222.844" height="87.5672" rx="43.7836" fill="#3A8DCA"/>
+                <g class="shadows">
+                    <circle cx="47.0856" cy="49.6896" r="61.599" fill="white" fill-opacity="0.1"/>
+                    <circle cx="47.0856" cy="49.0856" r="86.9633" fill="white" fill-opacity="0.1"/>
+                    <circle cx="47.0856" cy="49.6896" r="114.743" fill="white" fill-opacity="0.1"/>
+                </g>
+                <g class="clouds">
+                    <path opacity="0.6" fill-rule="evenodd" clip-rule="evenodd" d="M222.654 49.1957C231.814 43.5644 237.922 33.4503 237.922 21.9096C237.922 4.23246 223.592 -10.0977 205.914 -10.0977C188.237 -10.0977 173.907 4.23246 173.907 21.9096C173.907 31.0592 177.746 39.3121 183.901 45.1453C183.074 45.9994 182.308 46.9129 181.609 47.8787C178.571 46.3334 175.133 45.4622 171.491 45.4622C160.54 45.4622 151.428 53.341 149.516 63.7397C145.639 59.2062 139.878 56.3326 133.445 56.3326C123.762 56.3326 115.599 62.8443 113.097 71.7278C110.144 69.6385 106.538 68.4108 102.645 68.4108C99.0178 68.4108 95.6391 69.477 92.8058 71.3132C89.0895 68.7223 84.5706 67.203 79.6968 67.203C67.0226 67.203 56.7482 77.4775 56.7482 90.1517C56.7482 102.826 67.0226 113.1 79.6968 113.1C87.1527 113.1 93.7782 109.545 97.97 104.037C99.4616 104.434 101.029 104.646 102.645 104.646C110.253 104.646 116.766 99.9563 119.451 93.3105C120.435 94.1809 121.501 94.9609 122.636 95.6376C122.595 96.2193 122.575 96.8065 122.575 97.3986C122.575 111.073 133.66 122.159 147.335 122.159C161.01 122.159 172.095 111.073 172.095 97.3986C172.095 94.8754 171.718 92.4403 171.016 90.1467C171.174 90.15 171.333 90.1517 171.491 90.1517C177.987 90.1517 183.836 87.3797 187.919 82.9542C191.856 85.5929 196.592 87.1321 201.687 87.1321C215.362 87.1321 226.447 76.0465 226.447 62.3717C226.447 57.5293 225.057 53.0115 222.654 49.1957ZM33.7995 108.269C46.4737 108.269 56.7482 97.9946 56.7482 85.3204C56.7482 72.6462 46.4737 62.3717 33.7995 62.3717C21.1253 62.3717 10.8509 72.6462 10.8509 85.3204C10.8509 97.9946 21.1253 108.269 33.7995 108.269Z" fill="#F3FDFF"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M233.639 51.5374C241.719 45.7275 246.98 36.2448 246.98 25.5331C246.98 7.85593 232.65 -6.47424 214.973 -6.47424C197.296 -6.47424 182.966 7.85593 182.966 25.5331C182.966 36.2448 188.228 45.7275 196.308 51.5374C193.893 54.3052 192.084 57.6149 191.087 61.26C187.55 58.9097 183.304 57.5404 178.738 57.5404C167.631 57.5404 158.416 65.6451 156.686 76.2634C156.588 76.2623 156.491 76.2617 156.394 76.2617C155.101 76.2617 153.831 76.3608 152.592 76.5518C148.858 70.5751 142.219 66.5991 134.653 66.5991C125.687 66.5991 118.026 72.181 114.953 80.0591C111.887 77.6788 108.036 76.2617 103.853 76.2617C99.2689 76.2617 95.0821 77.9644 91.891 80.772C87.7745 76.8545 82.2047 74.45 76.0734 74.45C69.7218 74.45 63.9729 77.0303 59.8177 81.2C56.0702 73.6221 48.261 68.4108 39.2347 68.4108C26.5605 68.4108 16.2861 78.6853 16.2861 91.3595C16.2861 104.034 26.5605 114.308 39.2347 114.308C45.5863 114.308 51.3352 111.728 55.4904 107.558C59.2379 115.136 67.047 120.347 76.0734 120.347C83.9892 120.347 90.969 116.339 95.0942 110.242C97.6902 111.679 100.676 112.496 103.853 112.496C110.8 112.496 116.834 108.587 119.874 102.847C123.289 106.188 127.833 108.38 132.879 108.8C136.14 118.664 145.436 125.782 156.394 125.782C169.706 125.782 180.565 115.276 181.131 102.103C189.792 101.181 196.975 95.3107 199.798 87.3732C203.989 90.6288 209.255 92.5673 214.973 92.5673C228.648 92.5673 239.734 81.4817 239.734 67.8069C239.734 61.5793 237.434 55.8886 233.639 51.5374Z" fill="#F3FDFF"/>
+                </g>    
+                    <circle class="circle" cx="47.0856" cy="49.0857" r="36.2347" fill="#FED62E"/>
+                <g class="stars">   
+                    <path d="M86.6202 32.124C86.269 32.4741 85.838 32.6619 85.3325 32.6822C85.838 32.7076 86.2637 32.8903 86.6202 33.2405C86.9713 33.5906 87.1469 34.0068 87.1469 34.494C87.1469 34.0068 87.3225 33.5906 87.6737 33.2405C88.0248 32.8903 88.4505 32.7025 88.956 32.6822C88.4505 32.6619 88.0248 32.4741 87.6737 32.124C87.3225 31.7738 87.1469 31.3577 87.1469 30.8705C87.1469 31.3577 86.9713 31.7738 86.6202 32.124Z" fill="white"/>
+                    <path d="M92.2301 63.7134C91.996 63.9469 91.7086 64.072 91.3716 64.0856C91.7086 64.1025 91.9924 64.2243 92.2301 64.4577C92.4642 64.6912 92.5812 64.9686 92.5812 65.2934C92.5812 64.9686 92.6983 64.6912 92.9324 64.4577C93.1665 64.2243 93.4503 64.0991 93.7873 64.0856C93.4503 64.072 93.1665 63.9469 92.9324 63.7134C92.6983 63.48 92.5812 63.2025 92.5812 62.8777C92.5812 63.2025 92.4642 63.48 92.2301 63.7134Z" fill="white"/>
+                    <path d="M59.7784 23.3427C58.842 24.2764 57.6927 24.7772 56.3447 24.8313C57.6927 24.899 58.8278 25.3862 59.7784 26.3199C60.7149 27.2537 61.1831 28.3634 61.1831 29.6626C61.1831 28.3634 61.6513 27.2537 62.5878 26.3199C63.5243 25.3862 64.6594 24.8854 66.0073 24.8313C64.6594 24.7772 63.5243 24.2764 62.5878 23.3427C61.6513 22.4089 61.1831 21.2992 61.1831 20C61.1831 21.2992 60.7149 22.4089 59.7784 23.3427Z" fill="white"/>
+                    <path d="M124.397 63.2008C123.461 64.1346 122.311 64.6353 120.963 64.6895C122.311 64.7571 123.446 65.2443 124.397 66.1781C125.333 67.1119 125.802 68.2216 125.802 69.5207C125.802 68.2216 126.27 67.1119 127.206 66.1781C128.143 65.2443 129.278 64.7436 130.626 64.6895C129.278 64.6353 128.143 64.1346 127.206 63.2008C126.27 62.267 125.802 61.1573 125.802 59.8582C125.802 61.1573 125.333 62.267 124.397 63.2008Z" fill="white"/>
+                    <path d="M35.7168 39.7887C35.2486 40.2556 34.674 40.506 34 40.533C34.674 40.5669 35.2415 40.8104 35.7168 41.2773C36.1851 41.7442 36.4192 42.2991 36.4192 42.9487C36.4192 42.2991 36.6533 41.7442 37.1215 41.2773C37.5898 40.8104 38.1573 40.5601 38.8313 40.533C38.1573 40.506 37.5898 40.2556 37.1215 39.7887C36.6533 39.3218 36.4192 38.767 36.4192 38.1174C36.4192 38.767 36.1851 39.3218 35.7168 39.7887Z" fill="white"/>
+                    <path d="M136.57 39.7887C136.102 40.2556 135.527 40.506 134.853 40.533C135.527 40.5669 136.095 40.8104 136.57 41.2773C137.038 41.7442 137.272 42.2991 137.272 42.9487C137.272 42.2991 137.507 41.7442 137.975 41.2773C138.443 40.8104 139.011 40.5601 139.685 40.533C139.011 40.506 138.443 40.2556 137.975 39.7887C137.507 39.3218 137.272 38.767 137.272 38.1174C137.272 38.767 137.038 39.3218 136.57 39.7887Z" fill="white"/>
+                    <path d="M60.8266 57.6743C60.5925 57.9077 60.3052 58.0329 59.9682 58.0464C60.3052 58.0634 60.589 58.1852 60.8266 58.4186C61.0607 58.6521 61.1778 58.9295 61.1778 59.2543C61.1778 58.9295 61.2949 58.6521 61.529 58.4186C61.7631 58.1852 62.0469 58.06 62.3838 58.0464C62.0469 58.0329 61.7631 57.9077 61.529 57.6743C61.2949 57.4408 61.1778 57.1634 61.1778 56.8386C61.1778 57.1634 61.0607 57.4408 60.8266 57.6743Z" fill="white"/>
+                    <path d="M115.783 44.3882C115.549 44.6217 115.261 44.7468 114.924 44.7604C115.261 44.7773 115.545 44.8991 115.783 45.1325C116.017 45.366 116.134 45.6434 116.134 45.9682C116.134 45.6434 116.251 45.366 116.485 45.1325C116.719 44.8991 117.003 44.7739 117.34 44.7604C117.003 44.7468 116.719 44.6217 116.485 44.3882C116.251 44.1548 116.134 43.8773 116.134 43.5526C116.134 43.8773 116.017 44.1548 115.783 44.3882Z" fill="white"/>
+                    <path d="M46.762 67.1508C46.4108 67.5009 45.9798 67.6887 45.4744 67.709C45.9798 67.7344 46.4055 67.9171 46.762 68.2673C47.1132 68.6174 47.2888 69.0336 47.2888 69.5208C47.2888 69.0336 47.4643 68.6174 47.8155 68.2673C48.1667 67.9171 48.5924 67.7293 49.0978 67.709C48.5924 67.6887 48.1667 67.5009 47.8155 67.1508C47.4643 66.8006 47.2888 66.3845 47.2888 65.8973C47.2888 66.3845 47.1132 66.8006 46.762 67.1508Z" fill="white"/>
+                </g>  
+                <g class="moon_circles">
+                    <circle cx="44.0428" cy="29.1333" r="5.13325" fill="#9DA5B5"/>
+                    <circle cx="34.6822" cy="57.8191" r="12.6822" fill="#9DA5B5"/>
+                    <circle cx="66.0856" cy="55.4035" r="7.85086" fill="#9DA5B5"/>
+                </g>
+            </svg>
+            </nav>
+            
+            <div class="text_bl">
+                <h1><span>a library that</span><br> makes life easier</h1>
+                <h2>helps write JS code</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and  typesetting industry. Lorem Ipsum has been the industry's standard dummy  text ever since the 1500s, when an unknown printer took a galley of  type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+                <button class="btn">More info</button>
+                <button class="btn2">Chat GPT</button>
+            </div>
+            <div class="img_bl">
+                <img class="img__bl_img" src="img/man_light.png" alt="">
+            </div>
+            <div class="jquery_features_block">
+                <div class="feature"><div style="display: flex; justify-content: center; align-items: center; border-radius: 10px; background-color: rgb(245, 245, 245); width: 180px; height: 45px;"><img src="img/check mark.png" alt=""> JQuery Features 1</div></div>
+                <div class="feature"><div style="display: flex; justify-content: center; align-items: center; border-radius: 10px; background-color: rgb(245, 245, 245); width: 180px; height: 45px;"><img src="img/check mark.png" alt=""> JQuery Features 2</div></div>
+                <div class="feature"><div style="display: flex; justify-content: center; align-items: center; border-radius: 10px; background-color: rgb(245, 245, 245); width: 180px; height: 45px;"><img src="img/check mark.png" alt=""> JQuery Features 3</div></div>
+                <div class="feature"><div style="display: flex; justify-content: center; align-items: center; border-radius: 10px; background-color: rgb(245, 245, 245); width: 180px; height: 45px;"><img src="img/check mark.png" alt=""> JQuery Features 4</div></div>
+                <div class="feature"><div style="display: flex; justify-content: center; align-items: center; border-radius: 10px; background-color: rgb(245, 245, 245); width: 180px; height: 45px;"><img src="img/check mark.png" alt=""> JQuery Features 5</div></div>
+                <div class="feature"><div style="display: flex; justify-content: center; align-items: center; border-radius: 10px; background-color: rgb(245, 245, 245); width: 180px; height: 45px;"><img src="img/check mark.png" alt=""> JQuery Features 6</div></div>
+            </div>
+            <div class="programm_lang_block">
+                <img src="img/html_ic.webp" alt="icon">
+                <img src="img/css_icon.png" alt="icon">
+                <img src="img/js-icon.png" alt="icon">
+                <img src="img/jquery-_icon.png" alt="icon">
+            </div>
+        </header>
+
+        <section class="jqsyn_h1">
+            <h1><b>JQUERY</b> SYNTAX</h1>
+        </section>
+        <section class="jqsyn_body">
+            <div class="jq_one">
+                <h1><b>$</b>("selector").<b>action</b>(<span></span>)</h1>
+            </div>
+            <div class="jq_two">
+                <p class="jq_p">Click on the syntax to get more information</p>
+            </div>
+            <script>
+                $(document).ready(()=>{
+                    var txt = "string,\nnumber,\nObject";
+                    var i=0
+                    var typestarted = false
+                    function write(){
+                        if(i<txt.length){
+                            $('.jq_one span').append(txt.charAt(i));
+                            i++
+                            setTimeout(write, 100);
+                        }
+                    }
+                    $('.jq_one h1').mouseover(()=>{
+                        if(!typestarted){
+                            typestarted = true
+                            write()
+                        }
+                })
+                })
+                $('.jq_one').click(() =>{
+                    $('.jq_p').fadeOut(500, ()=>{$('.jq_p').html(`The jQuery syntax is tailor-made for selecting HTML elements and performing some action on the element(s).<br> Basic syntax is: $(selector).action()<br><br> A $ sign to define/access jQuery<br>A (selector) to "query (or find)" HTML elements<br>A jQuery action() to be performed on the element(s)`)})
+                    $('.jq_p').fadeIn(500)
+                    $('.jq_two').css({height:'250px'})
+                })
+            </script>
+        </section>
+        <section class="jqanim_h1">
+            <h1><b>STANDARD ANIMATION</b> METHODS IN JQUERY</h1>
+        </section>
+        <section class="jqsyn_body2">
+            <div class="jq_one2">
+                <div class="div_one1">
+                    <p>The hide() and show() methods in jQuery are used to control the visibility of HTML elements. They allow you to easily hide and show elements on a page without having to manually change their CSS properties. Here's how they work:</p>
+                </div>
+                <div class="div_one2">
+                    <h1><b>$</b>("selector").<b>hide</b>(speed,callback)</h1>
+                </div>
+                <div class="button_container">
+                    <button class="f1" style="background-color: #0F2435; color: white;">hide()</button'><button class="f2" style='border:1px solid #0F2435;'>show()</button><button class="f3"  style='border:1px solid #3EB7BF;'>toggle()</button>
+                    <button class="s1" style="background-color: #0F2435; color: white;">slideDown()</button'><button class="s2" style='border:1px solid #0F2435;'>slideUp()</button><button class="s3"  style='border:1px solid #3EB7BF;'>slideToggle()</button>
+                    <button class="t1" style="background-color: #0F2435; color: white;">fadeIn()</button'><button class="t2" style='border:1px solid #0F2435;'>fadeOut()</button><button class="t3"  style='border:1px solid #3EB7BF;'>fadeToggle()</button>
+                    
+                </div>
+            </div>
+            <div class="jq_two2">
+               <img class="jq_img" src="img/fonpng.jpg">
+            </div>
+            <script>
+                $('.f1').click(()=>{$('.jq_img').hide(1000)})
+                $('.f2').click(()=>{$('.jq_img').show(1000)})
+                $('.f3').click(()=>{$('.jq_img').toggle(1000)})
+
+                $('.s1').click(()=>{$('.jq_img').slideDown(1000)})
+                $('.s2').click(()=>{$('.jq_img').slideUp(1000)})
+                $('.s3').click(()=>{$('.jq_img').slideToggle(1000)})
+
+                $('.t1').click(()=>{$('.jq_img').fadeIn(1000)})
+                $('.t2').click(()=>{$('.jq_img').fadeOut(1000)})
+                $('.t3').click(()=>{$('.jq_img').fadeToggle(1000)})
+            </script>
+        </section>
+
+        <section class="main_h1_3">
+            <h1><b style="color: royalblue;">easy management</b> of DOM elements</h1>
+        </section>
+        <section class="main_body_3">
+            <div class="main_body_container_3">
+                <input class="input_one" placeholder="method name" type="text" >
+                <input class="input_two" placeholder="description" type="text" >
+                <hr style="width: 70%; border: 2px solid rgba(128, 128, 128, 0.418);">
+                <button class="add_tag_bl">Add</button>
+            </div>
+            <div class="main_body_container_3_2">
+                <div class="tag_bl">
+                    <h2>text()</h2>
+                    <p>Method <b>text()</b> method can read (get) or write (replace) text within a given <b>HTML</b> element.</p>
+                </div>
+                <div class="tag_bl">
+                    <h2>prepend()</h2>
+                    <p>Method <b>prepand()</b> inserts new <b>HTML</b> code at the beginning of the selected <b>HTML</b> element.</p>
+                </div>
+            </div>
+            <script>
+                function createBlock(text1, text2) {
+                const block = $('<div>')
+                    .addClass('tag_bl')
+                    .html(`<h2>${text1}</h2><br><p>${text2}</p>`);
+                $('.main_body_container_3_2').append(block);
+                }
+
+            // Обработчик для сохранения данных
+            $('.add_tag_bl').click(function() {
+                const value1 = $('.input_one').val();
+                const value2 = $('.input_two').val();
+
+                if (value1 && value2) {
+                    let savedBlocks = JSON.parse(localStorage.getItem('blocks')) || [];
+                    savedBlocks.push({ text1: value1, text2: value2 });
+                    localStorage.setItem('blocks', JSON.stringify(savedBlocks));
+
+                    createBlock(value1, value2);
+
+                    // Очищаем инпуты
+                    $('.input_one').val('');
+                    $('.input_two').val('');
+                }
+            });
+
+            // Проверяем, есть ли данные в localStorage при загрузке страницы
+            $(window).on('load', function() {
+                const savedBlocks = JSON.parse(localStorage.getItem('blocks')) || [];
+                savedBlocks.forEach((block) => {
+                    createBlock(block.text1, block.text2);
+                });
+            });
+
+            // Обработчик клика для удаления блока
+            $(document).on('click', '.tag_bl', function() {
+                const index = $(this).index(); // Получаем индекс блока
+                let savedBlocks = JSON.parse(localStorage.getItem('blocks')) || [];
+
+                // Удаляем блок из массива по индексу
+                let deletedBlocks = savedBlocks.splice(index, 1);
+                localStorage.setItem('blocks', JSON.stringify(deletedBlocks));
+
+                // Удаляем блок из DOM
+                $(this).remove();
+            });
+            </script>
+        </section>
+
+        <section class="main_section_4">
+            <h1 style="font-size: 40px; text-transform: uppercase;"><span style="color: royalblue;">jQuery UI Libr</span>ary - Sortable</h1>
+            <h2 style="font-weight: 400; font-size: 25px;">Take an image</h2>
+            <div class="correct_sort_cont">
+                <div class="correct_sort_alert">
+                    <p style="margin-top: 2%; font-size: 20px; background-color: #0F2435; color: white; display: flex; align-items: center; justify-content: center; border-radius: 100%; width: 35px; height: 35px;">&#10004;</p>
+                    <h2>Good Job</h2>
+                    <button id="hide_sort_alert" style="margin-top: 5%; background-color: #0F2435; color: white; font-size: 20px; width: 50%; height: 50px; border-radius: 15px;">OK</button>
+                </div>
+            </div>
+            <div id="sortable" class="sort_img_bl">
+                <img src="img/sortable_imgs/image_part_001.png" alt="">
+                <img src="img/sortable_imgs/image_part_009.png" alt="">
+                <img src="img/sortable_imgs/image_part_005.png" alt="">
+                <img src="img/sortable_imgs/image_part_002.png" alt="">
+                <img src="img/sortable_imgs/image_part_003.png" alt="">
+                <img src="img/sortable_imgs/image_part_008.png" alt="">
+                <img src="img/sortable_imgs/image_part_006.png" alt="">
+                <img src="img/sortable_imgs/image_part_004.png" alt="">
+                <img src="img/sortable_imgs/image_part_007.png" alt="">
+            </div>
+            <script>
+                $(".correct_sort_alert").hide()
+                $(".correct_sort_cont").hide()
+                // Правильный порядок изображений по индексу
+                const correctOrder = ["001", "002", "003", "004", "005", "006", "007", "008", "009"];
+
+                // Функция проверки правильного порядка
+                function checkOrder() {
+                    let isCorrect = true;
+
+                    $("#sortable img").each(function(index) {
+                        // Проверка, если часть имени файла картинки совпадает с правильным порядком
+                        if (!$(this).attr("src").includes(correctOrder[index])) {
+                            isCorrect = false;
+                        }
+                    });
+
+                    if (isCorrect) {
+                        $(".correct_sort_alert").fadeIn().css({display:'flex'})
+                        $(".main_section_4 h2").css({"margin-top":"2%"})
+                        $(".correct_sort_cont").fadeIn().css({display:'block'})
+                        $("#sortable").css({"margin-top":"-45%"})
+                    }
+                }
+                $("#hide_sort_alert").click(()=>{
+                    $(".correct_sort_alert").fadeOut()
+                    $(".correct_sort_cont").fadeOut()
+                    $(".main_section_4 h2").css({"margin-top":"-2%"})
+                    $("#sortable").css({"margin-top":"-2%"})
+                })
+
+                // Сортировка с проверкой порядка
+                $( ".sort_img_bl" ).sortable({
+                    update: function() {
+                        checkOrder();
+                    }
+                })
+            </script>
+        </section>
+        <div class="main_h1_4">
+            <h1><b style="color: royalblue;">JQUERY UI LIBRARY</b>- DRAG&&DROP</h1>
+            <p style="font-size: 20px; margin-top: -2%;">Put the methods Into Boxes</p>
+        </div>
+        <section style="margin-top: 2%; margin-bottom: 2%;" class="main_section_5">
+            <div class="section5_div_1">
+                <img id="section5_img1" src="img/box_without_border.png">
+                <h2>Java Script</h2>
+            </div>
+            <div class="section5_div_2" style="position: relative;">
+                <p class="p_1 jq">$</p>
+                <p class="p_2 jq">text</p>
+                <p class="p_3 js">style</p>
+                <p class="p_4 js">querySelector</p>
+                <p class="p_5 js"> InnerHTML</p>
+                <p class="p_6 jq">hide</p>
+                <p class="p_7 js">value</p>
+                <p class="p_8 jq">css</p>
+                <p class="p_9 jq">val</p>
+                <p class="p_10 jq">toggle</p>
+                <p class="p_11 js">addEventListener</p>
+            </div>
+            <div class="section5_div_3">
+                <img id="section5_img2" src="img/box_without_border.png">
+                <h2>JQuery</h2>
+            </div>
+            <script>
+                $(".section5_div_2 p").draggable()
+                $(".section5_div_1").droppable({
+                    accept:'.js',
+                    drop:function(event,ui){
+                        ui.draggable.hide()
+                    },
+                }).hover(function(){
+                    $(this).css({transition:"0.2s", border:"3px dashed blue"})
+                    $("#section5_img1").attr('src','img/box.png')
+                }, function(){
+                    $(this).css({border:"none"})
+                    $("#section5_img1").attr('src','img/box_without_border.png')
+                }
+                )
+                $(".section5_div_3").droppable({
+                    accept:'.jq',
+                    drop:function(event,ui){
+                        ui.draggable.hide()
+                    },
+                }).hover(function(){
+                    $(this).css({transition:"0.2s", border:"3px dashed blue"})
+                    $("#section5_img2").attr('src','img/box.png')
+                }, function(){
+                    $(this).css({border:"none"})
+                    $("#section5_img2").attr('src','img/box_without_border.png')
+                }
+                )
+            </script>
+         </section>
+         <div class="main_h1_5"><h1><span style="color: royalblue;">JQUERY</span> ACCORDION</h1></div>
+         <section class="accordion_sec">
+             <div class="acc_sec1">
+                <div class="ac_button accoridion_button1">Methods that are really cool in JQUERY <span>&#10148;</span></div>
+                 <div class="ac_txt ac_but1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                <div class="ac_button accoridion_buttons2">Which easier to do with JQUERY <span>&#10148;</span></div>
+                 <div class="ac_txt ac_but2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                <div class="ac_button accoridion_buttons3">What better to do in pure JS <span>&#10148;</span></div>
+                 <div class=" ac_txt ac_but3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+             </div>
+              <div class="acc_sec2">
+                  <div class="ac_imgs"></div>
+                  <div class="ac_imgs"></div>
+                  <div class="ac_imgs"></div>
+                  <div class="ac_imgs"></div>
+              </div>
+              <script>
+                $(".ac_button").click(function(){
+                    $("span").removeClass("ac_rotated_btn")
+                    $(".acc_sec1").css({height:"400px"})
+                    $(".ac_txt").slideUp(300)
+
+                    $(this).find("span").toggleClass("ac_rotated_btn")
+                    $(this).next(".ac_txt").slideDown(300)
+                })
+                $(".ac_imgs").click(function(){
+                    $(".ac_imgs").css({width:'30%'})
+                    $(this).css({width:'100%'})
+                })
+              </script>
+         </section>
+    </div>
+    <footer style="width: 100%; height: 150px; background-color: #0F2435; margin-top: 5%; border-radius: 10px 10px 0 0; display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+        <h1 style="font-size: 30px; color: white; width: 100%; text-align: center; margin-bottom: -5%;">Original niggers 2024-20XX &#xa9;copyrights</h1>
+        <h3 style="color: white; width: 100%; text-align: center;">Dmitriy and Hleb</h3>
+    </footer>
+
+
+
+    <script>
+        let i = localStorage.getItem('theme') === 'true';
+
+        // Function to apply theme styles
+        function fun1() {
+            if (i) {
+                $(".skelet").css({ fill: "#3A8DCA" });
+                $(".circle").css({ fill: "#FED62E", transform: 'translateX(0px)' });
+                $(".moon_circles").css({ opacity: "0", transform: 'translateX(0px)' });
+                $(".stars").css({ opacity: "0" });
+                $(".clouds").css({ transform: "translateY(0)" });
+                $(".shadows").css({ transform: "translateX(0)" });
+                $("header").css({background:'#F0F7F8'})
+                $(".img__bl_img").attr({src: "img/man_light.png"})
+                $(".text_bl h1").css({color:'black'})
+                $(".text_bl span").css({color:'royalblue'})
+                $(".text_bl p").css({color:'black'})
+                $('.text_bl h2').css({color:'black'})
+                $('.btn2').css({color:'#0F2435', border:'1px solid #0F2435'})
+
+            } else {
+                $(".skelet").css({ fill: "#1B1D2A" });
+                $(".circle").css({ fill: "#C4C9D2", transform: 'translateX(130px)' });
+                $(".moon_circles").css({ opacity: "1", transform: 'translateX(130px)' });
+                $(".stars").css({ opacity: "1" });
+                $(".clouds").css({ transform: "translate(100px, 100px)" });
+                $(".shadows").css({ transform: "translateX(130px)" });
+                $("header").css({background:'#00487C',})
+                $(".img__bl_img").attr({src: "img/man_dark.png"})
+                $(".text_bl h1").css({color:'white'})
+                $(".text_bl span").css({color:'yellow'})
+                $(".text_bl p").css({color:'white'})
+                $('.text_bl h2').css({color:'white'})
+                $('.btn2').css({color:'white', border:'1px solid white'})
+            }
+        }
+
+        // Apply the theme on page load
+        fun1();
+
+        // Handle the theme toggle on SVG click
+        $("svg").click(function () {
+            i = !i;  // Toggle the theme state
+            localStorage.setItem('theme', i);  // Save the theme state to local storage
+            fun1();  // Apply the new theme
+        }); 
+    </script>
+</body>
+</html>
